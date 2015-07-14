@@ -1,0 +1,6 @@
+I have written a number of finance functions in Octave as part of a machine learning / stock market timing project I am working on. As I modify these functions to make them slightly more general and write help files for them, I'll post them here.
+
+Most of these functions have dependencies. Please read the help files.
+
+Comments and suggestions are welcome.
+

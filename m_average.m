@@ -14,7 +14,7 @@
 ## this program; if not, see <http://www.gnu.org/licenses/>.
 
 ## -*- texinfo -*-
-# @deftypefn {Function File} {[@var{ma}] =} movavg (@var{asset, period, variant})
+# @deftypefn {Function File} {[@var{ma}] =} m_average (@var{asset, period, variant})
 #
 # Calculate the moving average of an (@var{asset}).
 #
@@ -33,9 +33,9 @@
 # @end deftypefn
 
 
-function ma = movavg (asset, period, variant)
-# MOVAVG Create moving average.
-# ma = MOVAVG (asset, period, variant) creates column vector of	moving
+function ma = m_average (asset, period, variant)
+# M_AVERAGE Create moving average.
+# ma = M_AVERAGE (asset, period, variant) creates column vector of	moving
 # average. Inputs are column vector of asset and period for moving average.
 # If variant is 1, calculate the simple moving average. If variant is 2,
 # calculate the exponential moving average.

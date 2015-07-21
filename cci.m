@@ -50,9 +50,9 @@ if nargin < 1
 elseif nargin > 3
 	printf ('Error: must have at most three arguments.')
 elseif period > rows (asset)
-	error ('Period must be <= the number of rows in asset matrix')
+	error ('Error: period must be <= the number of rows in asset matrix')
 elseif ! ismatrix (asset)
-	error ('closeprice must be a vector')
+	error ('Error: closeprice must be a vector')
 end
 
 m = rows (asset);

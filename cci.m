@@ -30,6 +30,8 @@
 % With a @var{constant} of 0.015, approximately 70 to 80 percent of CCI values
 % will typically fall between -100 and +100.
 %
+% The beginning of the CCI is padded with NANs to match the size of @var{asset}.
+%
 % Dependencies:
 % Octave statistics package,
 % m_average function.
@@ -56,8 +58,8 @@ elseif ! ismatrix (asset)
 end
 
 m = rows (asset);
-ccindex = zeros (m, 1);
-typ_price = sum (asset, 2) ./ 3;
+ccindex = nan (m, 1);
+typ_price = mean (asset, 2);
 
 cci_sma = m_average (typ_price, period, 1);
 
@@ -65,7 +67,8 @@ mean_dev = zeros (m, 1);
 for i = period: m
 	mean_dev(i) = mad (typ_price (i - period + 1: i));
 end
+
 ccindex = (typ_price - cci_sma) ./ (constant * mean_dev);
-ccindex (1: period - 1) = zeros(period - 1, 1);
+ccindex (1: period - 1) = nan (period - 1, 1);
 
 end

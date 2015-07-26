@@ -25,8 +25,8 @@
 # weighting applied to the most recent price depends on the number of periods:
 # a factor of 2 divided by the number of periods + 1 is used.
 #
-# For the simple moving average, the first @var{period} values are filled with
-# zeros.
+% If @var{variant} is 1, the beginning of the moving average is padded with NANs to 
+% match the size of @var{asset}.
 #
 # Dependencies:
 # none.
@@ -45,12 +45,12 @@ function ma = m_average (asset, period, variant)
 
 if variant == 1
 	ma = filter ((1 / period) * ones(1, period), 1, asset);
-	ma(1: period - 1) = zeros(period - 1, 1);
+	ma(1: period - 1) = nan (period - 1, 1);
 elseif variant == 2
 	alpha = 2 / (period + 1);
 	ma = filter (alpha, [1 (alpha - 1)], asset, asset(1) * (1 - alpha));
 else
-	error ('variant must be 1 or 2.')
+	error ('Error: variant must be 1 or 2.')
 end
 
 end

@@ -52,7 +52,7 @@ elseif nargin > 3
 elseif period > rows (asset)
 	error ('Error: period must be <= the number of rows in asset matrix')
 elseif ! ismatrix (asset)
-	error ('Error: closeprice must be a vector')
+	error ('Error: asset must be a vector')
 end
 
 m = rows (asset);
@@ -63,7 +63,7 @@ cci_sma = m_average (typ_price, period, 1);
 
 mean_dev = zeros (m, 1);
 for i = period: m
-	mean_dev(i) = mad (typ_price(i - period + 1: i));
+	mean_dev(i) = mad (typ_price (i - period + 1: i));
 end
 ccindex = (typ_price - cci_sma) ./ (constant * mean_dev);
 ccindex (1: period - 1) = zeros(period - 1, 1);

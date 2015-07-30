@@ -19,7 +19,7 @@
 % Calculate stochastic oscillators (fast %K, full %K, and full %D) of an asset from a
 % matrix of high, low, and closing prices (@var{asset}). Fast %K is calculated by
 % subtracting the lowest low over the past @var{k_period} periods from the current 
-% closing price, multiplying that by 100 and then dividing by the highest high 
+% closing price, multiplying that by 100, and then dividing by the highest high 
 % minus the lowest low.
 %
 % Full %K is the @var{full_period}-period simple moving average of fast %K. Full %D
@@ -40,14 +40,16 @@ function [fast_k, full_k, full_d] = stochastic (asset, k_period = 14, full_perio
 %	low, & close prices. k_period is the period for fast %K. full_period is 
 %	the period for full %K & full %D.
 
+pkg load financial;
+
 if nargin < 1
 	printf ('Error: must have at least one argument.')	
 elseif nargin > 3
 	printf ('Error: must have at most three arguments.')
 elseif k_period > rows (asset)
-	error ('Error: k_period must be <= rows of asset vector')
+	error ('Error: k_period must be <= rows of asset matrix')
 elseif full_period > rows (asset)
-	error ('Error: full_period must be <= rows of asset vector')
+	error ('Error: full_period must be <= rows of asset matrix')
 elseif ! ismatrix (asset)
 	error ('Error: asset must be a matrix')
 end

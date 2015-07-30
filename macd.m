@@ -45,9 +45,9 @@ if nargin < 1
 elseif nargin > 4
 	printf ('Error: must have at most four arguments.')
 elseif period1 > length (asset)
-	error ('Error: period1 must be <= the number of rows in asset matrix')
+	error ('Error: period1 must be <= the number of rows in asset vector')
 elseif period2 > length (asset)
-	error ('Error: period2 must be <= the number of rows in asset matrix')
+	error ('Error: period2 must be <= the number of rows in asset vector')
 elseif sigline_period > length (asset)
 	error ('Error: sigline_period must be <= the number of rows in asset matrix')
 elseif ! isvector (asset)

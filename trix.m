@@ -24,8 +24,6 @@
 % @var{t_period}-period exponential moving average of @var{asset}. @var{sigline} is 
 % the signal line, a @var{s_period}-period exponential moving average of @var{trix_val}.
 %
-% The beginning of TRIX is padded with NANs to match the size of @var{asset}.
-%
 % @var{t_period} and @var{s_period} are optional. The defaults are 15 and 9.
 %
 % Dependencies:

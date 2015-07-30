@@ -52,8 +52,14 @@ function diver = divergence (price, indicator, delta_pr, delta_ind)
 pkg load signal;
 
 d_size = length (price);
-if d_size ~= length (indicator)
-	error ('Error!!! Price and indicator must be of equal length!')
+if nargin ~= 4
+	printf ('Error: must have exactly four arguments.')
+elseif ! isvector (price)
+	error ('Error: price must be a vector')
+elseif ! isvector (indicator)
+	error ('Error: indicator must be a vector')
+elseif d_size ~= length (indicator)
+	error ('Error: price and indicator must be of equal length')
 end
 
 % First determine highs & lows for both price & indicator:

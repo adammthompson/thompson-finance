@@ -16,14 +16,14 @@
 ## -*- texinfo -*-
 # @deftypefn {Function File} {[@var{ma}] =} m_average (@var{asset, period, variant})
 #
-# Calculate the moving average of an (@var{asset}).
+# Calculate the moving average of an @var{asset}.
 #
-# If @var{variant} is 1, calculate the simple moving average. If @var{variant}
-# is 2, calculate the exponential moving average. A simple moving average is
-# just the average price of the @var{asset} over a specific number of periods.
-# The exponential moving average applies more weight to recent prices. The
-# weighting applied to the most recent price depends on the number of periods:
-# a factor of 2 divided by the number of periods + 1 is used.
+# If @var{variant} is 1 (the default), calculate the simple moving average. If
+# @var{variant} is 2, calculate the exponential moving average. A simple 
+# moving average is just the average price of the @var{asset} over a specific 
+# number of periods. The exponential moving average applies more weight to 
+# recent prices. The weighting applied to the most recent price depends on the 
+# number of periods: a factor of 2 divided by the number of periods + 1 is used.
 #
 % If @var{variant} is 1, the beginning of the moving average is padded with NANs to 
 % match the size of @var{asset}.
@@ -33,7 +33,7 @@
 # @end deftypefn
 
 
-function ma = m_average (asset, period, variant)
+function ma = m_average (asset, period, variant = 1)
 # M_AVERAGE Create moving average.
 # ma = M_AVERAGE (asset, period, variant) creates column vector of	moving
 # average. Inputs are column vector of asset and period for moving average.

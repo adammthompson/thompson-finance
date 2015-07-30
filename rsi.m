@@ -23,8 +23,6 @@
 % average gain over the last @var{period} periods to the average loss. Then 100 is 
 % divided by 1 + RS, and that quotient is subtracted from 100.
 %
-% The beginning of the RSI is padded with NANs to match the size of @var{asset}.
-%
 % @var{variant} 1 uses a simple moving average for the average gains and losses.
 % @var{variant} 2 uses the exponential moving average.
 %

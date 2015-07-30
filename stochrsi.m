@@ -61,8 +61,4 @@ lst_low = llow (rsindex, period);
 hst_high = hhigh (rsindex, period);
 srsi = (rsindex - lst_low) ./ (hst_high - lst_low);
 
-for i = 1: 40
-	printf('%d: %.2f  %.2f  %.2f\n', i, lst_low(i), hst_high(i), srsi(i))
-end
-
 end

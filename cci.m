@@ -19,10 +19,10 @@
 % Calculate the Commodity Channel Index (CCI) of an asset from the matrix whose
 % columns are high, low, and closing prices (@var{asset}).
 %
-% The CCI is calculated as the typical price minus the @var{period} simple
-% moving average of the typical price, all divided by the mean deviation of the
-% typical price. The typical price for each day is the average of the high,
-% low, and closing prices.
+% The CCI is calculated as the typical price minus the @var{period}-period 
+% simple moving average of the typical price, all divided by the mean 
+% deviation of the typical price. The typical price for each day is the 
+% average of the high, low, and closing prices.
 %
 % @var{period} and @var{constant} are optional. Defaults are 20 and 0.015
 % respectively.
@@ -54,7 +54,7 @@ elseif nargin > 3
 elseif period > rows (asset)
 	error ('Error: period must be <= the number of rows in asset matrix')
 elseif ! ismatrix (asset)
-	error ('Error: asset must be a vector')
+	error ('Error: asset must be a matrix')
 end
 
 m = rows (asset);
@@ -69,6 +69,5 @@ for i = period: m
 end
 
 ccindex = (typ_price - cci_sma) ./ (constant * mean_dev);
-ccindex (1: period - 1) = nan (period - 1, 1);
 
 end

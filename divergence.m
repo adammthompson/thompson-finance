@@ -33,7 +33,6 @@
 % and error for each series.
 %
 % Dependencies:
-% Octave signal package, 
 % function peakdet by Eli Billauer (http://www.billauer.co.il/peakdet.html).
 % @end deftypefn
 
@@ -48,8 +47,6 @@ function diver = divergence (price, indicator, delta_pr, delta_ind)
 % delta_pr is used to determine height of price peaks required to be counted.
 % delta_ind is used to determine height of indicator peaks required to be
 % counted. These must be determined empirically for each series.
-
-pkg load signal;
 
 d_size = length (price);
 if nargin ~= 4
